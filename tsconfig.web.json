@@ -1,0 +1,17 @@
+{
+  "extends": "@unconfig/ts-config/browser.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@vnode-execute/*": ["packages/*/src"]
+    }
+  },
+  "include": ["packages/*/*", "packages/*/*.json", "packages/*/typings/**/*"],
+  "exclude": [
+    "**/__tests__/**",
+    "**/tests/**",
+    "node_modules",
+    "**/dist",
+    "**/*.md"
+  ]
+}

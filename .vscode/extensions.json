@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-complete-tag",
+    "steoates.autoimport",
+    "formulahendry.auto-rename-tag",
+    "pranaygp.vscode-css-peek",
+    "dbaeumer.vscode-eslint",
+    "wix.vscode-import-cost",
+    "xabikos.javascriptsnippets",
+    "akamud.vscode-javascript-snippet-pack",
+    "DavidAnson.vscode-markdownlint",
+    "leizongmin.node-module-intellisense",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "mohsen1.prettify-json",
+  ]
+}

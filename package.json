@@ -1,0 +1,48 @@
+{
+  "name": "vnode-execute-monorepo",
+  "private": true,
+  "packageManager": "pnpm@7.29.1",
+  "homepage": "https://github.com/i7eo/vnode-execute#readme",
+  "bugs": {
+    "url": "https://github.com/i7eo/vnode-execute/issues"
+  },
+  "license": "MIT",
+  "author": "i7eo <admin@i7eo.com> (https://github.com/i7eo)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/i7eo/vnode-execute.git"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "simple-git-hooks",
+    "dev": "turbo run dev --parallel --continue",
+    "dev:component": "turbo run dev --filter=component",
+    "build": "turbo run build --filter=./packages/*",
+    "test": "turbo run test",
+    "clean": "run-s clean:**",
+    "clean:workspace": "turbo run clean",
+    "clean:cache": "turbo run clean:cache",
+    "clean:root-cache": "rimraf .turbo && rimraf pnpm-lock.yaml && rimraf node_modules",
+    "lint": "turbo run lint",
+    "format": "turbo run lint:prettier",
+    "commit": "czg"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@unconfig/commitlint-config": "latest",
+    "@unconfig/eslint-config": "latest",
+    "@unconfig/lint-staged-config": "latest",
+    "@unconfig/prettier-config": "latest",
+    "@unconfig/simple-git-hooks-config": "latest",
+    "@unconfig/ts-config": "latest",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^4.4.0",
+    "tsx": "^3.12.5",
+    "turbo": "^1.8.3",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=7"
+  }
+}
