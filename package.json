@@ -1,7 +1,7 @@
 {
   "name": "vnode-execute-monorepo",
   "private": true,
-  "packageManager": "pnpm@7.29.1",
+  "packageManager": "pnpm@8.1.0",
   "homepage": "https://github.com/i7eo/vnode-execute#readme",
   "bugs": {
     "url": "https://github.com/i7eo/vnode-execute/issues"
@@ -17,6 +17,7 @@
     "postinstall": "simple-git-hooks",
     "dev": "turbo run dev --parallel --continue",
     "dev:component": "turbo run dev --filter=component",
+    "dev:vnode": "turbo run dev --filter=vnode",
     "build": "turbo run build --filter=./packages/*",
     "test": "turbo run test",
     "clean": "run-s clean:**",
