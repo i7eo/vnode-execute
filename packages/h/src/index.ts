@@ -46,4 +46,6 @@ console.log(JSON.stringify(statefulComponentVNode))
 //   childFlags: 2,
 // }
 
-export {}
+export * from './component'
+export * from './flags'
+export * from './h'

@@ -2,19 +2,20 @@ import { ChildrenFlags, VNodeFlags } from './flags'
 
 export const Fragment = Symbol()
 export const Portal = Symbol()
-export type Tag = string | symbol | Record<string, any> | Function | null
-export type Data = Record<string, any> | null
-export type Children =
-  | Record<string, any>
-  | Record<string, any>[]
-  | string
-  | null
+export type VNode = Record<string, any>
+export type Tag = string | symbol | VNode | Function | null
+export type Data = VNode | null
+export type Children = VNode | VNode[] | string | null
 
 export function h(tag: Tag, data: Data = null, children: Children = null) {
   // 确定 flags
   let flags: VNodeFlags | null = null
   if (typeof tag === 'string') {
     flags = tag === 'svg' ? VNodeFlags.ELEMENT_SVG : VNodeFlags.ELEMENT_HTML
+
+    if (data) {
+      data.class = normalizeClass(data.class)
+    }
   } else if (tag === Fragment) {
     flags = VNodeFlags.FRAGMENT
   } else if (tag === Portal) {
@@ -75,11 +76,11 @@ export function h(tag: Tag, data: Data = null, children: Children = null) {
   }
 }
 
-function normalizeVNodes(children: Children) {
-  const newChildren: Children = []
+function normalizeVNodes(children: VNode[]) {
+  const newChildren: VNode[] = []
   // 遍历 children
   for (let i = 0; i < children!.length; i++) {
-    const child = children![i]
+    const child = children[i]
     if (child.key == null) {
       // 如果原来的 VNode 没有key，则使用竖线(|)与该VNode在数组中的索引拼接而成的字符串作为key
       child.key = `|${i}`
@@ -88,6 +89,28 @@ function normalizeVNodes(children: Children) {
   }
   // 返回新的children，此时 children 的类型就是 ChildrenFlags.KEYED_VNODES
   return newChildren
+}
+
+// 对 :class=[] 与 :class={} 俩种形式进行兼容，这里做序列化处理
+function normalizeClass(
+  classValue: Record<string, any> | Record<string, any>[] | string
+) {
+  // res 是最终要返回的类名字符串
+  let res = ''
+  if (typeof classValue === 'string') {
+    res = classValue
+  } else if (Array.isArray(classValue)) {
+    for (let i = 0; i < classValue.length; i++) {
+      res += `${normalizeClass(classValue[i])} `
+    }
+  } else if (typeof classValue === 'object') {
+    for (const name in classValue) {
+      if (classValue[name]) {
+        res += `${name} `
+      }
+    }
+  }
+  return res.trim()
 }
 
 function createTextVNode(text: string) {

@@ -2,6 +2,10 @@
 
 🚀 The nature of vnode!
 
+## Reference
+
+[先设计 VNode 吧](https://github.com/HcySunYang/vue-design/blob/master/docs/zh/vnode.md)
+
 ## Design
 
 The common designs are as follows

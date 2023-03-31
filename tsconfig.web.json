@@ -6,7 +6,7 @@
       "@vnode-execute/*": ["packages/*/src"]
     }
   },
-  "include": ["packages/*/*", "packages/*/*.json", "packages/*/typings/**/*"],
+  "include": ["packages"],
   "exclude": [
     "**/__tests__/**",
     "**/tests/**",
