@@ -18,6 +18,7 @@
     "dev": "turbo run dev --parallel --continue",
     "dev:component": "turbo run dev --filter=component",
     "dev:vnode": "turbo run dev --filter=vnode",
+    "dev:h": "turbo run dev --filter=h",
     "build": "turbo run build --filter=./packages/*",
     "test": "turbo run test",
     "clean": "run-s clean:**",

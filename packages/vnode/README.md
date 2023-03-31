@@ -194,3 +194,5 @@ This pattern is JIT, developer not handle this.
 ## Question
 
 1. How does vuejs create vnode?
+
+Use `h` to create vnode, please see `../h`
