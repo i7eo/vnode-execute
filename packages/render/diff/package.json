@@ -1,8 +1,8 @@
 {
-  "name": "@vnode-execute/h",
+  "name": "@vnode-execute/render-diff",
   "version": "0.0.0",
-  "description": "🚀 The nature of h!",
-  "homepage": "https://github.com/i7eo/vnode-execute/blob/master/packages/h#readme",
+  "description": "🚀 The nature of render-diff!",
+  "homepage": "https://github.com/i7eo/vnode-execute/blob/master/packages/render/diff#readme",
   "bugs": {
     "url": "https://github.com/i7eo/vnode-execute/issues"
   },
@@ -22,7 +22,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/i7eo/vnode-execute.git",
-    "directory": "packages/h"
+    "directory": "packages/render/diff"
   },
   "types": "./dist/index.d.ts",
   "scripts": {
