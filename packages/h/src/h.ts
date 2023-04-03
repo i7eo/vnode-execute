@@ -12,7 +12,6 @@ export function h(tag: Tag, data: Data = null, children: Children = null) {
   let flags: VNodeFlags | null = null
   if (typeof tag === 'string') {
     flags = tag === 'svg' ? VNodeFlags.ELEMENT_SVG : VNodeFlags.ELEMENT_HTML
-
     if (data) {
       data.class = normalizeClass(data.class)
     }
@@ -113,7 +112,7 @@ function normalizeClass(
   return res.trim()
 }
 
-function createTextVNode(text: string) {
+export function createTextVNode(text: string) {
   return {
     _isVNode: true,
     // flags 是 VNodeFlags.TEXT
@@ -124,5 +123,6 @@ function createTextVNode(text: string) {
     children: text,
     // 文本节点没有子节点
     childFlags: ChildrenFlags.NO_CHILDREN,
+    el: null,
   }
 }

@@ -10,7 +10,7 @@
   "exclude": [
     "**/__tests__/**",
     "**/tests/**",
-    "node_modules",
+    "**/node_modules/**",
     "**/dist",
     "**/*.md"
   ]
