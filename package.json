@@ -21,6 +21,7 @@
     "dev:h": "turbo run dev --filter=h",
     "dev:render-basic": "turbo run dev --filter=render-basic",
     "dev:render-patch": "turbo run dev --filter=render-patch",
+    "dev:render-diff": "turbo run dev --filter=render-diff",
     "build": "turbo run build --filter=./packages/*",
     "test": "turbo run test",
     "clean": "run-s clean:**",
