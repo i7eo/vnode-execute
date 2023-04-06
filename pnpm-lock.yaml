@@ -124,6 +124,9 @@ importers:
 
   packages/render/patch:
     devDependencies:
+      '@vnode-execute/h':
+        specifier: workspace:*
+        version: link:../../h
       http-server:
         specifier: ^14.1.1
         version: 14.1.1
